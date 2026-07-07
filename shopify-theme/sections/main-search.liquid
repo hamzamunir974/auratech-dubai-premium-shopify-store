@@ -1,0 +1,31 @@
+<section class="main-search section-padding">
+  <div class="page-width">
+    <div class="section-header">
+      <p class="section-kicker">Search</p>
+      <h1>Search AuraTech Dubai</h1>
+    </div>
+
+    <form class="search-page-form" action="{{ routes.search_url }}" method="get" role="search">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products">
+      <button class="button button--primary" type="submit">Search</button>
+    </form>
+
+    {% if search.performed %}
+      <div class="product-grid">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            {% render 'product-card', product: item %}
+          {% endif %}
+        {% else %}
+          <p>No results found. Try a different search term.</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main search"
+}
+{% endschema %}

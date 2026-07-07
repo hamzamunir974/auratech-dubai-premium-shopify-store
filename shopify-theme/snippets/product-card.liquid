@@ -1,0 +1,44 @@
+<article class="product-card">
+  <a href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+    {% if product.featured_image %}
+      <img
+        src="{{ product.featured_image | image_url: width: 700 }}"
+        alt="{{ product.featured_image.alt | default: product.title | escape }}"
+        loading="lazy"
+        width="700"
+        height="594"
+      >
+    {% else %}
+      <img
+        src="{{ 'solar-powerbank.png' | asset_url }}"
+        alt="{{ product.title | escape }}"
+        loading="lazy"
+        width="700"
+        height="594"
+      >
+    {% endif %}
+  </a>
+  <button class="product-card__wishlist" type="button" aria-label="Add {{ product.title | escape }} to wishlist">+</button>
+  {% if product.compare_at_price > product.price %}
+    <span class="product-badge product-badge--sale">Sale</span>
+  {% elsif product.available %}
+    <span class="product-badge">New</span>
+  {% else %}
+    <span class="product-badge">Sold Out</span>
+  {% endif %}
+
+  <div class="product-card__content">
+    <p class="product-card__eyebrow">{{ product.type | default: product.vendor | default: 'AuraTech' }}</p>
+    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <div class="rating" aria-label="Rating placeholder">***** <span>4.7</span></div>
+    <div class="product-card__bottom">
+      <strong>{{ product.price | money }}</strong>
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</article>

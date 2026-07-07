@@ -1,0 +1,45 @@
+<section class="announcement-bar" aria-label="Store announcements">
+  <div class="announcement-bar__inner page-width">
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+      {% endfor %}
+    {% else %}
+      <span>Free UAE delivery over AED 200</span>
+      <span>100% genuine products</span>
+      <span>Secure checkout</span>
+      <span>Warranty support available</span>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free UAE delivery over AED 200"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar",
+      "blocks": [
+        { "type": "message", "settings": { "text": "Free UAE delivery over AED 200" } },
+        { "type": "message", "settings": { "text": "100% genuine products" } },
+        { "type": "message", "settings": { "text": "Secure checkout" } },
+        { "type": "message", "settings": { "text": "Warranty support available" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

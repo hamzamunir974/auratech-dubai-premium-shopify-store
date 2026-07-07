@@ -1,0 +1,26 @@
+<section class="promo-banner section-padding" id="deals" aria-labelledby="promo-heading-{{ section.id }}">
+  <div class="promo-banner__inner page-width">
+    <div>
+      <p class="section-kicker">{{ section.settings.kicker }}</p>
+      <h2 id="promo-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+    </div>
+    <a class="button button--light" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Promo banner",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Smart value" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Upgrade Your Daily Tech Setup" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Bundle charging, audio, and smart accessories for a cleaner desk, smoother commute, and better everyday convenience." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Explore Bundles" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [
+    { "name": "Promo banner" }
+  ]
+}
+{% endschema %}

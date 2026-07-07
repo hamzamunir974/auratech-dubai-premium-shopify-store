@@ -1,0 +1,33 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "AuraTech Dubai",
+    "theme_version": "1.0.0",
+    "theme_author": "Hamza Munir",
+    "theme_documentation_url": "https://github.com/hamzamunir974/auratech-dubai-premium-shopify-store",
+    "theme_support_url": "https://github.com/hamzamunir974/auratech-dubai-premium-shopify-store"
+  },
+  {
+    "name": "Brand colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "brand_blue",
+        "label": "Brand blue",
+        "default": "#0A3DFF"
+      },
+      {
+        "type": "color",
+        "id": "brand_teal",
+        "label": "Brand teal",
+        "default": "#00E0D1"
+      },
+      {
+        "type": "color",
+        "id": "brand_charcoal",
+        "label": "Brand charcoal",
+        "default": "#0D0F12"
+      }
+    ]
+  }
+]

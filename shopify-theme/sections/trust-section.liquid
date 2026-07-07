@@ -1,0 +1,39 @@
+<section class="trust-section" aria-label="Store benefits">
+  <div class="trust-grid page-width">
+    {% for block in section.blocks %}
+      <article {{ block.shopify_attributes }}>
+        <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <h3>{{ block.settings.heading }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust section",
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Fast UAE Delivery" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Quick dispatch across Dubai, Abu Dhabi, Sharjah, and wider UAE locations." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust section",
+      "blocks": [
+        { "type": "benefit", "settings": { "heading": "Fast UAE Delivery", "text": "Quick dispatch across Dubai, Abu Dhabi, Sharjah, and wider UAE locations." } },
+        { "type": "benefit", "settings": { "heading": "100% Genuine Products", "text": "Carefully sourced tech with clear product details and dependable support." } },
+        { "type": "benefit", "settings": { "heading": "Secure Payments", "text": "Checkout designed for confidence with trusted payment method support." } },
+        { "type": "benefit", "settings": { "heading": "Warranty Support", "text": "Helpful warranty-style guidance for eligible products and accessories." } },
+        { "type": "benefit", "settings": { "heading": "Easy Returns", "text": "Simple assistance when an order needs review, exchange, or return support." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

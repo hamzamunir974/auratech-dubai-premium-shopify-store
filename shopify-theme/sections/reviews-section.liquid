@@ -1,0 +1,50 @@
+<section class="reviews-section section-padding" aria-labelledby="reviews-heading-{{ section.id }}">
+  <div class="section-header page-width">
+    <p class="section-kicker">{{ section.settings.kicker }}</p>
+    <h2 id="reviews-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="reviews-marquee" data-marquee>
+    <div class="reviews-track">
+      {% for block in section.blocks %}
+        <article class="review-card" {{ block.shopify_attributes }}>
+          <div class="rating">{{ block.settings.rating }}</div>
+          <p>"{{ block.settings.text }}"</p>
+          <strong>{{ block.settings.author }}</strong>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews section",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Customer notes" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Trusted by UAE Tech Shoppers" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "rating", "label": "Rating text", "default": "*****" },
+        { "type": "textarea", "id": "text", "label": "Review", "default": "The charging dock was neatly packed and easy to set up. Delivery in Dubai was quick." },
+        { "type": "text", "id": "author", "label": "Author", "default": "Omar A." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews section",
+      "blocks": [
+        { "type": "review", "settings": { "rating": "*****", "text": "The charging dock was neatly packed and easy to set up. Delivery in Dubai was quick.", "author": "Omar A." } },
+        { "type": "review", "settings": { "rating": "*****", "text": "Good product range for accessories. The product photos made it easy to compare options.", "author": "Mariam K." } },
+        { "type": "review", "settings": { "rating": "****+", "text": "Support answered my warranty question clearly before I placed the order.", "author": "Faisal R." } },
+        { "type": "review", "settings": { "rating": "*****", "text": "I bought headphones and a power bank together. Checkout felt straightforward.", "author": "Noura S." } },
+        { "type": "review", "settings": { "rating": "*****", "text": "Clean store experience and fair AED pricing. I would use it again for small tech items.", "author": "Daniel M." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,68 @@
+<section class="category-section section-padding" aria-labelledby="category-heading-{{ section.id }}">
+  <div class="section-header page-width">
+    <p class="section-kicker">{{ section.settings.kicker }}</p>
+    <h2 id="category-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="category-grid page-width">
+    {% for block in section.blocks %}
+      {% assign fallback_image = 'charging-dock.png' %}
+      {% case block.settings.title %}
+        {% when 'Laptops' %}
+          {% assign fallback_image = 'car-charger.png' %}
+        {% when 'Audio' %}
+          {% assign fallback_image = 'red-headphones.png' %}
+        {% when 'Smartwatches' %}
+          {% assign fallback_image = 'gold-smartwatch.png' %}
+        {% when 'Accessories' %}
+          {% assign fallback_image = 'mini-projector.png' %}
+      {% endcase %}
+      <article class="category-card" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" loading="lazy" width="500" height="500">
+        {% else %}
+          <img src="{{ fallback_image | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="500" height="500">
+        {% endif %}
+        <div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+          <a href="{{ block.settings.link | default: routes.all_products_collection_url }}">{{ block.settings.link_label }}</a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Category section",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Shop by category" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Curated Tech for Every Setup" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Mobiles" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Phones, holders, charging docks, and mobile-first accessories." },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop now" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category section",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Mobiles", "text": "Phones, holders, charging docks, and mobile-first accessories.", "link_label": "Shop mobiles" } },
+        { "type": "category", "settings": { "title": "Laptops", "text": "Useful add-ons for workstations, travel, and daily productivity.", "link_label": "Shop laptops" } },
+        { "type": "category", "settings": { "title": "Audio", "text": "Headphones, earbuds, speakers, and creator-ready sound gear.", "link_label": "Shop audio" } },
+        { "type": "category", "settings": { "title": "Smartwatches", "text": "Modern wrist tech with polished everyday styling.", "link_label": "Shop watches" } },
+        { "type": "category", "settings": { "title": "Accessories", "text": "Portable projectors, power banks, and smart lifestyle tools.", "link_label": "Shop accessories" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
