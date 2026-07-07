@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuraTech Dubai | Premium Electronics Store</title>
+    <meta
+      name="description"
+      content="AuraTech Dubai is a premium UAE electronics store for gadgets, mobile accessories, smartwatches, audio, and everyday tech."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <section class="announcement-bar" aria-label="Store announcements">
+      <div class="announcement-bar__inner page-width">
+        <span>Free UAE delivery over AED 200</span>
+        <span>100% genuine products</span>
+        <span>Secure checkout</span>
+        <span>Warranty support available</span>
+      </div>
+    </section>
+
+    <header class="site-header" data-header>
+      <div class="site-header__inner page-width">
+        <a class="brand-logo" href="#" aria-label="AuraTech Dubai home">
+          <img class="brand-logo__full" src="assets/auratech-logo-secondary.png" alt="AuraTech Dubai" />
+          <img class="brand-logo__icon" src="assets/auratech-logo-icon.png" alt="" aria-hidden="true" />
+        </a>
+
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#mobiles">Mobiles</a>
+          <a href="#laptops">Laptops</a>
+          <a href="#audio">Audio</a>
+          <a href="#smartwatches">Smartwatches</a>
+          <a href="#accessories">Accessories</a>
+          <a href="#deals">Deals</a>
+        </nav>
+
+        <form class="header-search" role="search">
+          <label class="visually-hidden" for="site-search">Search products</label>
+          <input id="site-search" type="search" placeholder="Search tech..." />
+          <button type="submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10.8 4.5a6.3 6.3 0 1 1 0 12.6 6.3 6.3 0 0 1 0-12.6Zm0 1.8a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm5.1 9.2 3.6 3.6-1.3 1.3-3.6-3.6 1.3-1.3Z" />
+            </svg>
+          </button>
+        </form>
+
+        <div class="header-actions" aria-label="Account and cart">
+          <button class="icon-button" aria-label="Account">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12.2a4.1 4.1 0 1 1 0-8.2 4.1 4.1 0 0 1 0 8.2Zm0-1.8a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6ZM4.8 20c.7-3.6 3.4-5.6 7.2-5.6s6.5 2 7.2 5.6h-1.9c-.6-2.5-2.4-3.8-5.3-3.8S7.3 17.5 6.7 20H4.8Z" />
+            </svg>
+          </button>
+          <button class="icon-button" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 20.6 10.9 19C6.6 15.1 4 12.7 4 9.4A4.5 4.5 0 0 1 8.6 5c1.4 0 2.7.6 3.4 1.6A4.2 4.2 0 0 1 15.4 5 4.5 4.5 0 0 1 20 9.4c0 3.3-2.6 5.7-6.9 9.6L12 20.6Zm-2.7-3.1.1.1 2.6 2.4 2.6-2.4.1-.1c4-3.6 5.5-5.2 5.5-8.1a2.7 2.7 0 0 0-2.8-2.7c-1.3 0-2.5.8-3 2h-1.7c-.5-1.2-1.7-2-3-2A2.7 2.7 0 0 0 5.8 9.4c0 2.9 1.5 4.5 5.5 8.1Z" />
+            </svg>
+          </button>
+          <button class="icon-button icon-button--cart" aria-label="Cart">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 18.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm10 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM3.5 4H6l2.2 10.8h8.5l2-7.1H8.4L8 5.9h13.1l-3 10.7H6.7L4.5 5.8h-1V4Z" />
+            </svg>
+            <span>2</span>
+          </button>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" data-mobile-menu>
+        <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+          <a href="#mobiles">Mobiles</a>
+          <a href="#laptops">Laptops</a>
+          <a href="#audio">Audio</a>
+          <a href="#smartwatches">Smartwatches</a>
+          <a href="#accessories">Accessories</a>
+          <a href="#deals">Deals</a>
+        </nav>
+        <form class="mobile-search" role="search">
+          <label class="visually-hidden" for="mobile-site-search">Search products</label>
+          <input id="mobile-site-search" type="search" placeholder="Search AuraTech Dubai" />
+          <button class="button button--primary" type="submit">Search</button>
+        </form>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero-section section-padding">
+        <div class="hero-section__inner page-width">
+          <div class="hero-section__content">
+            <p class="section-kicker">Premium UAE electronics</p>
+            <h1>Dubai's Premium Destination for Tech</h1>
+            <p>
+              Discover smart accessories, audio essentials, charging solutions, and everyday gadgets selected for modern UAE lifestyles.
+            </p>
+            <div class="hero-section__actions">
+              <a class="button button--primary" href="#featured-products">Shop Now</a>
+              <a class="button button--secondary" href="#deals">Explore Deals</a>
+            </div>
+            <div class="hero-section__proof" aria-label="Store highlights">
+              <span>Fast UAE dispatch</span>
+              <span>AED pricing</span>
+              <span>Secure payments</span>
+            </div>
+          </div>
+
+          <div class="hero-showcase" aria-label="Featured tech products">
+            <article class="hero-product hero-product--large">
+              <img src="assets/solar-powerbank.png" alt="Solar power bank charging multiple phones" />
+              <div>
+                <span>Power essentials</span>
+                <strong>Solar Power Bank</strong>
+              </div>
+            </article>
+            <article class="hero-product hero-product--small">
+              <img src="assets/gold-smartwatch.png" alt="Gold smartwatch with metal strap" />
+              <strong>Smartwatches</strong>
+            </article>
+            <article class="hero-product hero-product--small">
+              <img src="assets/red-headphones.png" alt="Red wireless headphones" />
+              <strong>Audio Picks</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section section-padding" aria-labelledby="category-heading">
+        <div class="section-header page-width">
+          <p class="section-kicker">Shop by category</p>
+          <h2 id="category-heading">Curated Tech for Every Setup</h2>
+        </div>
+        <div class="category-grid page-width">
+          <article class="category-card" id="mobiles">
+            <img src="assets/charging-dock.png" alt="Multi device mobile charging dock" />
+            <div>
+              <h3>Mobiles</h3>
+              <p>Phones, holders, charging docks, and mobile-first accessories.</p>
+              <a href="#">Shop mobiles</a>
+            </div>
+          </article>
+          <article class="category-card" id="laptops">
+            <img src="assets/car-charger.png" alt="Fast charging accessories beside laptop and devices" />
+            <div>
+              <h3>Laptops</h3>
+              <p>Useful add-ons for workstations, travel, and daily productivity.</p>
+              <a href="#">Shop laptops</a>
+            </div>
+          </article>
+          <article class="category-card" id="audio">
+            <img src="assets/red-headphones.png" alt="Wireless headphones" />
+            <div>
+              <h3>Audio</h3>
+              <p>Headphones, earbuds, speakers, and creator-ready sound gear.</p>
+              <a href="#">Shop audio</a>
+            </div>
+          </article>
+          <article class="category-card" id="smartwatches">
+            <img src="assets/gold-smartwatch.png" alt="Luxury style smartwatch" />
+            <div>
+              <h3>Smartwatches</h3>
+              <p>Modern wrist tech with polished everyday styling.</p>
+              <a href="#">Shop watches</a>
+            </div>
+          </article>
+          <article class="category-card" id="accessories">
+            <img src="assets/mini-projector.png" alt="Mini LED projector kit" />
+            <div>
+              <h3>Accessories</h3>
+              <p>Portable projectors, power banks, and smart lifestyle tools.</p>
+              <a href="#">Shop accessories</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="featured-products section-padding" id="featured-products" aria-labelledby="featured-heading">
+        <div class="section-header section-header--split page-width">
+          <div>
+            <p class="section-kicker">Featured products</p>
+            <h2 id="featured-heading">New Arrivals at AuraTech Dubai</h2>
+          </div>
+          <a class="text-link" href="#deals">View all deals</a>
+        </div>
+
+        <div class="product-grid page-width">
+          <article class="product-card">
+            <button class="product-card__wishlist" aria-label="Add Mini Wireless Speaker to wishlist">+</button>
+            <span class="product-badge">New</span>
+            <img src="assets/mini-speaker.png" alt="Mini wireless speaker with compact green design" />
+            <div class="product-card__content">
+              <p class="product-card__eyebrow">Portable Audio</p>
+              <h3>Mini Wireless Speaker</h3>
+              <div class="rating" aria-label="Rating 4.7 out of 5">***** <span>4.7</span></div>
+              <div class="product-card__bottom">
+                <strong>AED 89</strong>
+                <button>Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <button class="product-card__wishlist" aria-label="Add 3-in-1 Charging Dock to wishlist">+</button>
+            <span class="product-badge product-badge--sale">Sale</span>
+            <img src="assets/charging-dock.png" alt="3 in 1 charging dock for phone earbuds and watch" />
+            <div class="product-card__content">
+              <p class="product-card__eyebrow">Charging</p>
+              <h3>3-in-1 Charging Dock</h3>
+              <div class="rating" aria-label="Rating 4.6 out of 5">***** <span>4.6</span></div>
+              <div class="product-card__bottom">
+                <strong>AED 119</strong>
+                <button>Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <button class="product-card__wishlist" aria-label="Add Creator Shooting Kit to wishlist">+</button>
+            <span class="product-badge">Creator</span>
+            <img src="assets/creator-kit.png" alt="Mobile phone shooting set with light and microphone" />
+            <div class="product-card__content">
+              <p class="product-card__eyebrow">Creator Gear</p>
+              <h3>Mobile Creator Shooting Kit</h3>
+              <div class="rating" aria-label="Rating 4.5 out of 5">***** <span>4.5</span></div>
+              <div class="product-card__bottom">
+                <strong>AED 149</strong>
+                <button>Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <button class="product-card__wishlist" aria-label="Add Gold Smartwatch to wishlist">+</button>
+            <span class="product-badge">Premium</span>
+            <img src="assets/gold-smartwatch.png" alt="Gold smartwatch with premium metal bracelet" />
+            <div class="product-card__content">
+              <p class="product-card__eyebrow">Wearables</p>
+              <h3>Gold Smartwatch Bracelet</h3>
+              <div class="rating" aria-label="Rating 4.8 out of 5">***** <span>4.8</span></div>
+              <div class="product-card__bottom">
+                <strong>AED 229</strong>
+                <button>Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <button class="product-card__wishlist" aria-label="Add Smart Audio Glasses to wishlist">+</button>
+            <span class="product-badge">Hands-free</span>
+            <img src="assets/smart-audio-glasses.png" alt="Smart audio glasses with microphone" />
+            <div class="product-card__content">
+              <p class="product-card__eyebrow">Smart Accessories</p>
+              <h3>Bluetooth Audio Glasses</h3>
+              <div class="rating" aria-label="Rating 4.4 out of 5">****+ <span>4.4</span></div>
+              <div class="product-card__bottom">
+                <strong>AED 139</strong>
+                <button>Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <button class="product-card__wishlist" aria-label="Add Solar Power Bank to wishlist">+</button>
+            <span class="product-badge product-badge--sale">Bundle</span>
+            <img src="assets/solar-powerbank.png" alt="Solar charging power bank connected to devices" />
+            <div class="product-card__content">
+              <p class="product-card__eyebrow">Power</p>
+              <h3>Solar Power Bank 20000mAh</h3>
+              <div class="rating" aria-label="Rating 4.7 out of 5">***** <span>4.7</span></div>
+              <div class="product-card__bottom">
+                <strong>AED 179</strong>
+                <button>Add to Cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="trust-section" aria-label="Store benefits">
+        <div class="trust-grid page-width">
+          <article>
+            <span>01</span>
+            <h3>Fast UAE Delivery</h3>
+            <p>Quick dispatch across Dubai, Abu Dhabi, Sharjah, and wider UAE locations.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>100% Genuine Products</h3>
+            <p>Carefully sourced tech with clear product details and dependable support.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Secure Payments</h3>
+            <p>Checkout designed for confidence with trusted payment method support.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Warranty Support</h3>
+            <p>Helpful warranty-style guidance for eligible products and accessories.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>Easy Returns</h3>
+            <p>Simple assistance when an order needs review, exchange, or return support.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="promo-banner section-padding" id="deals" aria-labelledby="promo-heading">
+        <div class="promo-banner__inner page-width">
+          <div>
+            <p class="section-kicker">Smart value</p>
+            <h2 id="promo-heading">Upgrade Your Daily Tech Setup</h2>
+            <p>Bundle charging, audio, and smart accessories for a cleaner desk, smoother commute, and better everyday convenience.</p>
+          </div>
+          <a class="button button--light" href="#featured-products">Explore Bundles</a>
+        </div>
+      </section>
+
+      <section class="reviews-section section-padding" aria-labelledby="reviews-heading">
+        <div class="section-header page-width">
+          <p class="section-kicker">Customer notes</p>
+          <h2 id="reviews-heading">Trusted by UAE Tech Shoppers</h2>
+        </div>
+        <div class="reviews-marquee" data-marquee>
+          <div class="reviews-track">
+            <article class="review-card">
+              <div class="rating">*****</div>
+              <p>"The charging dock was neatly packed and easy to set up. Delivery in Dubai was quick."</p>
+              <strong>Omar A.</strong>
+            </article>
+            <article class="review-card">
+              <div class="rating">*****</div>
+              <p>"Good product range for accessories. The product photos made it easy to compare options."</p>
+              <strong>Mariam K.</strong>
+            </article>
+            <article class="review-card">
+              <div class="rating">****+</div>
+              <p>"Support answered my warranty question clearly before I placed the order."</p>
+              <strong>Faisal R.</strong>
+            </article>
+            <article class="review-card">
+              <div class="rating">*****</div>
+              <p>"I bought headphones and a power bank together. Checkout felt straightforward."</p>
+              <strong>Noura S.</strong>
+            </article>
+            <article class="review-card">
+              <div class="rating">*****</div>
+              <p>"Clean store experience and fair AED pricing. I would use it again for small tech items."</p>
+              <strong>Daniel M.</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter-section section-padding" aria-labelledby="newsletter-heading">
+        <div class="newsletter-section__inner page-width">
+          <div>
+            <p class="section-kicker">Stay updated</p>
+            <h2 id="newsletter-heading">Get the latest tech deals and exclusive offers</h2>
+          </div>
+          <form class="newsletter-form">
+            <label class="visually-hidden" for="newsletter-email">Email address</label>
+            <input id="newsletter-email" type="email" placeholder="Enter your email" required />
+            <button class="button button--primary" type="submit">Sign Up</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner page-width">
+        <div class="site-footer__brand">
+          <a class="brand-logo brand-logo--footer" href="#" aria-label="AuraTech Dubai home">
+            <img class="brand-logo__full" src="assets/auratech-logo-secondary.png" alt="AuraTech Dubai" />
+          </a>
+          <p>Premium UAE tech essentials for mobile, audio, power, smart accessories, and modern everyday setups.</p>
+          <div class="footer-socials" aria-label="Social links">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="TikTok">TT</a>
+            <a href="#" aria-label="Facebook">FB</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h3>Shop</h3>
+          <a href="#mobiles">Mobiles</a>
+          <a href="#laptops">Laptops</a>
+          <a href="#audio">Audio</a>
+          <a href="#smartwatches">Smartwatches</a>
+          <a href="#accessories">Accessories</a>
+        </div>
+
+        <div class="footer-links">
+          <h3>Customer Care</h3>
+          <a href="#">Contact Us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Returns</a>
+          <a href="#">Warranty Support</a>
+          <a href="#">FAQs</a>
+        </div>
+
+        <div class="footer-trust">
+          <h3>Secure Shopping</h3>
+          <p>UAE delivery, AED pricing, secure checkout, and responsive customer support.</p>
+          <div class="payment-icons" aria-label="Payment methods">
+            <span>Visa</span>
+            <span>MC</span>
+            <span>Apple Pay</span>
+            <span>COD</span>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom page-width">
+        <span>&copy; 2026 AuraTech Dubai. All rights reserved.</span>
+        <span>Built as a Shopify-ready storefront concept.</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
