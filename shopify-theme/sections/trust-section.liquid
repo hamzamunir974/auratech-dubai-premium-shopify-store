@@ -1,12 +1,20 @@
 <section class="trust-section" aria-label="Store benefits">
   <div class="trust-grid page-width">
-    {% for block in section.blocks %}
-      <article {{ block.shopify_attributes }}>
-        <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-        <h3>{{ block.settings.heading }}</h3>
-        <p>{{ block.settings.text }}</p>
-      </article>
-    {% endfor %}
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        <article {{ block.shopify_attributes }}>
+          <span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <h3>{{ block.settings.heading }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    {% else %}
+      <article><span>01</span><h3>Fast UAE Delivery</h3><p>Quick dispatch across Dubai, Abu Dhabi, Sharjah, and wider UAE locations.</p></article>
+      <article><span>02</span><h3>100% Genuine Products</h3><p>Carefully sourced tech with clear product details and dependable support.</p></article>
+      <article><span>03</span><h3>Secure Payments</h3><p>Checkout designed for confidence with trusted payment method support.</p></article>
+      <article><span>04</span><h3>Warranty Support</h3><p>Helpful warranty-style guidance for eligible products and accessories.</p></article>
+      <article><span>05</span><h3>Easy Returns</h3><p>Simple assistance when an order needs review, exchange, or return support.</p></article>
+    {% endif %}
   </div>
 </section>
 

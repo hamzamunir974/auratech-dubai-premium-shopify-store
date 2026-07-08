@@ -4,31 +4,54 @@
     <h2 id="category-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
   </div>
   <div class="category-grid page-width">
-    {% for block in section.blocks %}
-      {% assign fallback_image = 'charging-dock.png' %}
-      {% case block.settings.title %}
-        {% when 'Laptops' %}
-          {% assign fallback_image = 'car-charger.png' %}
-        {% when 'Audio' %}
-          {% assign fallback_image = 'red-headphones.png' %}
-        {% when 'Smartwatches' %}
-          {% assign fallback_image = 'gold-smartwatch.png' %}
-        {% when 'Accessories' %}
-          {% assign fallback_image = 'mini-projector.png' %}
-      {% endcase %}
-      <article class="category-card" {{ block.shopify_attributes }}>
-        {% if block.settings.image != blank %}
-          <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" loading="lazy" width="500" height="500">
-        {% else %}
-          <img src="{{ fallback_image | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="500" height="500">
-        {% endif %}
-        <div>
-          <h3>{{ block.settings.title }}</h3>
-          <p>{{ block.settings.text }}</p>
-          <a href="{{ block.settings.link | default: routes.all_products_collection_url }}">{{ block.settings.link_label }}</a>
-        </div>
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        {% assign fallback_image = 'charging-dock.png' %}
+        {% case block.settings.title %}
+          {% when 'Laptops' %}
+            {% assign fallback_image = 'car-charger.png' %}
+          {% when 'Audio' %}
+            {% assign fallback_image = 'red-headphones.png' %}
+          {% when 'Smartwatches' %}
+            {% assign fallback_image = 'gold-smartwatch.png' %}
+          {% when 'Accessories' %}
+            {% assign fallback_image = 'mini-projector.png' %}
+        {% endcase %}
+        <article class="category-card" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" loading="lazy" width="500" height="500">
+          {% else %}
+            <img src="{{ fallback_image | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="500" height="500">
+          {% endif %}
+          <div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+            <a href="{{ block.settings.link | default: routes.all_products_collection_url }}">{{ block.settings.link_label }}</a>
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <article class="category-card">
+        <img src="{{ 'charging-dock.png' | asset_url }}" alt="Mobile charging accessories" loading="lazy" width="500" height="500">
+        <div><h3>Mobiles</h3><p>Phones, holders, charging docks, and mobile-first accessories.</p><a href="/collections/mobiles">Shop mobiles</a></div>
       </article>
-    {% endfor %}
+      <article class="category-card">
+        <img src="{{ 'car-charger.png' | asset_url }}" alt="Laptop and device charging accessories" loading="lazy" width="500" height="500">
+        <div><h3>Laptops</h3><p>Useful add-ons for workstations, travel, and daily productivity.</p><a href="/collections/laptops">Shop laptops</a></div>
+      </article>
+      <article class="category-card">
+        <img src="{{ 'red-headphones.png' | asset_url }}" alt="Wireless headphones" loading="lazy" width="500" height="500">
+        <div><h3>Audio</h3><p>Headphones, earbuds, speakers, and creator-ready sound gear.</p><a href="/collections/audio">Shop audio</a></div>
+      </article>
+      <article class="category-card">
+        <img src="{{ 'gold-smartwatch.png' | asset_url }}" alt="Premium smartwatch" loading="lazy" width="500" height="500">
+        <div><h3>Smartwatches</h3><p>Modern wrist tech with polished everyday styling.</p><a href="/collections/smartwatches">Shop watches</a></div>
+      </article>
+      <article class="category-card">
+        <img src="{{ 'mini-projector.png' | asset_url }}" alt="Mini projector and smart accessories" loading="lazy" width="500" height="500">
+        <div><h3>Accessories</h3><p>Portable projectors, power banks, and smart lifestyle tools.</p><a href="/collections/accessories">Shop accessories</a></div>
+      </article>
+    {% endif %}
   </div>
 </section>
 
