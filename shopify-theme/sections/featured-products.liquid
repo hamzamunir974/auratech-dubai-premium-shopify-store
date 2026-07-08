@@ -8,78 +8,20 @@
   </div>
 
   <div class="product-grid page-width">
-    {% assign featured_collection = collections[section.settings.collection] %}
+    {% assign featured_collection = section.settings.collection %}
+    {% if featured_collection == blank or featured_collection.products_count == 0 %}
+      {% assign featured_collection = collections.all %}
+    {% endif %}
     {% if featured_collection != blank and featured_collection.products.size > 0 %}
       {% for product in featured_collection.products limit: section.settings.products_to_show %}
         {% render 'product-card', product: product %}
       {% endfor %}
     {% else %}
-      <article class="product-card">
-        <button class="product-card__wishlist" type="button" aria-label="Add Mini Wireless Speaker to wishlist">+</button>
-        <span class="product-badge">New</span>
-        <img src="{{ 'mini-speaker.png' | asset_url }}" alt="Mini wireless speaker with compact green design" loading="lazy" width="700" height="594">
-        <div class="product-card__content">
-          <p class="product-card__eyebrow">Portable Audio</p>
-          <h3>Mini Wireless Speaker</h3>
-          <div class="rating" aria-label="Rating 4.7 out of 5">***** <span>4.7</span></div>
-          <div class="product-card__bottom"><strong>AED 89</strong><button type="button">Add to Cart</button></div>
-        </div>
-      </article>
-      <article class="product-card">
-        <button class="product-card__wishlist" type="button" aria-label="Add 3-in-1 Charging Dock to wishlist">+</button>
-        <span class="product-badge product-badge--sale">Sale</span>
-        <img src="{{ 'charging-dock.png' | asset_url }}" alt="3 in 1 charging dock for phone earbuds and watch" loading="lazy" width="700" height="594">
-        <div class="product-card__content">
-          <p class="product-card__eyebrow">Charging</p>
-          <h3>3-in-1 Charging Dock</h3>
-          <div class="rating" aria-label="Rating 4.6 out of 5">***** <span>4.6</span></div>
-          <div class="product-card__bottom"><strong>AED 119</strong><button type="button">Add to Cart</button></div>
-        </div>
-      </article>
-      <article class="product-card">
-        <button class="product-card__wishlist" type="button" aria-label="Add Creator Shooting Kit to wishlist">+</button>
-        <span class="product-badge">Creator</span>
-        <img src="{{ 'creator-kit.png' | asset_url }}" alt="Mobile phone shooting set with light and microphone" loading="lazy" width="700" height="594">
-        <div class="product-card__content">
-          <p class="product-card__eyebrow">Creator Gear</p>
-          <h3>Mobile Creator Shooting Kit</h3>
-          <div class="rating" aria-label="Rating 4.5 out of 5">***** <span>4.5</span></div>
-          <div class="product-card__bottom"><strong>AED 149</strong><button type="button">Add to Cart</button></div>
-        </div>
-      </article>
-      <article class="product-card">
-        <button class="product-card__wishlist" type="button" aria-label="Add Gold Smartwatch to wishlist">+</button>
-        <span class="product-badge">Premium</span>
-        <img src="{{ 'gold-smartwatch.png' | asset_url }}" alt="Gold smartwatch with premium metal bracelet" loading="lazy" width="700" height="594">
-        <div class="product-card__content">
-          <p class="product-card__eyebrow">Wearables</p>
-          <h3>Gold Smartwatch Bracelet</h3>
-          <div class="rating" aria-label="Rating 4.8 out of 5">***** <span>4.8</span></div>
-          <div class="product-card__bottom"><strong>AED 229</strong><button type="button">Add to Cart</button></div>
-        </div>
-      </article>
-      <article class="product-card">
-        <button class="product-card__wishlist" type="button" aria-label="Add Smart Audio Glasses to wishlist">+</button>
-        <span class="product-badge">Hands-free</span>
-        <img src="{{ 'smart-audio-glasses.png' | asset_url }}" alt="Smart audio glasses with microphone" loading="lazy" width="700" height="594">
-        <div class="product-card__content">
-          <p class="product-card__eyebrow">Smart Accessories</p>
-          <h3>Bluetooth Audio Glasses</h3>
-          <div class="rating" aria-label="Rating 4.4 out of 5">****+ <span>4.4</span></div>
-          <div class="product-card__bottom"><strong>AED 139</strong><button type="button">Add to Cart</button></div>
-        </div>
-      </article>
-      <article class="product-card">
-        <button class="product-card__wishlist" type="button" aria-label="Add Solar Power Bank to wishlist">+</button>
-        <span class="product-badge product-badge--sale">Bundle</span>
-        <img src="{{ 'solar-powerbank.png' | asset_url }}" alt="Solar charging power bank connected to devices" loading="lazy" width="700" height="594">
-        <div class="product-card__content">
-          <p class="product-card__eyebrow">Power</p>
-          <h3>Solar Power Bank 20000mAh</h3>
-          <div class="rating" aria-label="Rating 4.7 out of 5">***** <span>4.7</span></div>
-          <div class="product-card__bottom"><strong>AED 179</strong><button type="button">Add to Cart</button></div>
-        </div>
-      </article>
+      <div class="empty-state product-grid__empty">
+        <h3>No products are published yet</h3>
+        <p>Add products in Shopify, publish them to the Online Store sales channel, or select a collection in this section.</p>
+        <a class="button button--primary" href="{{ routes.all_products_collection_url }}">View Products</a>
+      </div>
     {% endif %}
   </div>
 </section>
@@ -90,7 +32,7 @@
   "settings": [
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Featured products" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "New Arrivals at AuraTech Dubai" },
-    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "collection", "id": "collection", "label": "Collection", "info": "Leave blank to show products from the default All collection." },
     { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 3, "max": 12, "step": 1, "default": 6 },
     { "type": "text", "id": "view_all_label", "label": "View all label", "default": "View all deals" },
     { "type": "url", "id": "view_all_link", "label": "View all link" }

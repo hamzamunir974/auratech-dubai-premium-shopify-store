@@ -1,34 +1,38 @@
 {
-  "sections": {
-    "hero": {
-      "type": "hero-section"
-    },
-    "categories": {
-      "type": "category-section"
-    },
-    "featured": {
-      "type": "featured-products"
-    },
-    "trust": {
-      "type": "trust-section"
-    },
-    "promo": {
-      "type": "promo-banner"
-    },
-    "reviews": {
-      "type": "reviews-section"
-    },
-    "newsletter": {
-      "type": "newsletter-section"
-    }
-  },
-  "order": [
-    "hero",
-    "categories",
-    "featured",
-    "trust",
-    "promo",
-    "reviews",
-    "newsletter"
-  ]
+    "sections":  {
+                     "hero":  {
+                                  "type":  "hero-section"
+                              },
+                     "categories":  {
+                                        "type":  "category-section"
+                                    },
+                     "featured":  {
+                                      "type":  "featured-products"
+                                  },
+                     "trust":  {
+                                   "type":  "trust-section"
+                               },
+                     "promo":  {
+                                   "type":  "promo-banner"
+                               },
+                     "reviews":  {
+                                     "type":  "reviews-section"
+                                 },
+                     "newsletter":  {
+                                        "type":  "newsletter-section"
+                                    },
+                     "apps":  {
+                                  "type":  "apps"
+                              }
+                 },
+    "order":  [
+                  "hero",
+                  "categories",
+                  "featured",
+                  "trust",
+                  "promo",
+                  "reviews",
+                  "apps",
+                  "newsletter"
+              ]
 }

@@ -1,10 +1,14 @@
 {
-  "sections": {
-    "main": {
-      "type": "main-collection"
-    }
-  },
-  "order": [
-    "main"
-  ]
+    "sections":  {
+                     "main":  {
+                                  "type":  "main-collection"
+                              },
+                     "apps":  {
+                                  "type":  "apps"
+                              }
+                 },
+    "order":  [
+                  "main",
+                  "apps"
+              ]
 }
