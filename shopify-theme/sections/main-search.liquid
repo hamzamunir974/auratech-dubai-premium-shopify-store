@@ -6,20 +6,43 @@
     </div>
 
     <form class="search-page-form" action="{{ routes.search_url }}" method="get" role="search">
-      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products">
+      <input type="hidden" name="type" value="product">
+      <label class="visually-hidden" for="SearchForm-{{ section.id }}">Search products</label>
+      <input id="SearchForm-{{ section.id }}" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products">
       <button class="button button--primary" type="submit">Search</button>
     </form>
 
     {% if search.performed %}
-      <div class="product-grid">
-        {% for item in search.results %}
-          {% if item.object_type == 'product' %}
-            {% render 'product-card', product: item %}
-          {% endif %}
-        {% else %}
-          <p>No results found. Try a different search term.</p>
-        {% endfor %}
-      </div>
+      {% paginate search.results by 12 %}
+        <div class="product-grid">
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              {% render 'product-card', product: item %}
+            {% endif %}
+          {% else %}
+            <div class="empty-state product-grid__empty">
+              <h2>No results found</h2>
+              <p>Try a different product name, category, or accessory type.</p>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <nav class="pagination" role="navigation" aria-label="Search pagination">
+            {% if paginate.previous %}
+              <a class="pagination__link" href="{{ paginate.previous.url }}">Previous</a>
+            {% else %}
+              <span class="pagination__link is-disabled">Previous</span>
+            {% endif %}
+            <span class="pagination__status">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+            {% if paginate.next %}
+              <a class="pagination__link" href="{{ paginate.next.url }}">Next</a>
+            {% else %}
+              <span class="pagination__link is-disabled">Next</span>
+            {% endif %}
+          </nav>
+        {% endif %}
+      {% endpaginate %}
     {% endif %}
   </div>
 </section>

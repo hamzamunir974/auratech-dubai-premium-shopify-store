@@ -1,3 +1,8 @@
+{% assign wishlist_image = 'solar-powerbank.png' | asset_url %}
+{% if product.featured_image %}
+  {% assign wishlist_image = product.featured_image | image_url: width: 700 %}
+{% endif %}
+
 <article class="product-card">
   <a href="{{ product.url }}" aria-label="{{ product.title | escape }}">
     {% if product.featured_image %}
@@ -18,7 +23,20 @@
       >
     {% endif %}
   </a>
-  <button class="product-card__wishlist" type="button" aria-label="Add {{ product.title | escape }} to wishlist">+</button>
+  <button
+    class="product-card__wishlist"
+    type="button"
+    aria-label="Add {{ product.title | escape }} to wishlist"
+    aria-pressed="false"
+    data-wishlist-button
+    data-product-handle="{{ product.handle | escape }}"
+    data-product-title="{{ product.title | escape }}"
+    data-product-url="{{ product.url }}"
+    data-product-image="{{ wishlist_image }}"
+    data-product-price="{{ product.price | money | escape }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+    data-product-available="{{ product.available }}"
+  >+</button>
   {% if product.compare_at_price > product.price %}
     <span class="product-badge product-badge--sale">Sale</span>
   {% elsif product.available %}

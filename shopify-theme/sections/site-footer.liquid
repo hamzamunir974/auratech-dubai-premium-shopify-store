@@ -5,11 +5,13 @@
         <img class="brand-logo__full" src="{{ 'auratech-logo-secondary.png' | asset_url }}" alt="{{ shop.name | escape }}" width="430" height="180">
       </a>
       <p>{{ section.settings.description }}</p>
-      <div class="footer-socials" aria-label="Social links">
-        <a href="{{ section.settings.instagram_url }}" aria-label="Instagram">IG</a>
-        <a href="{{ section.settings.tiktok_url }}" aria-label="TikTok">TT</a>
-        <a href="{{ section.settings.facebook_url }}" aria-label="Facebook">FB</a>
-      </div>
+      {% if section.settings.instagram_url != blank or section.settings.tiktok_url != blank or section.settings.facebook_url != blank %}
+        <div class="footer-socials" aria-label="Social links">
+          {% if section.settings.instagram_url != blank %}<a href="{{ section.settings.instagram_url }}" aria-label="Instagram">IG</a>{% endif %}
+          {% if section.settings.tiktok_url != blank %}<a href="{{ section.settings.tiktok_url }}" aria-label="TikTok">TT</a>{% endif %}
+          {% if section.settings.facebook_url != blank %}<a href="{{ section.settings.facebook_url }}" aria-label="Facebook">FB</a>{% endif %}
+        </div>
+      {% endif %}
     </div>
 
     <div class="footer-links">
@@ -19,11 +21,11 @@
           <a href="{{ link.url }}">{{ link.title }}</a>
         {% endfor %}
       {% else %}
-        <a href="/collections/mobiles">Mobiles</a>
-        <a href="/collections/laptops">Laptops</a>
-        <a href="/collections/audio">Audio</a>
-        <a href="/collections/smartwatches">Smartwatches</a>
-        <a href="/collections/accessories">Accessories</a>
+        <a href="{{ collections['mobiles'].url | default: routes.all_products_collection_url }}">Mobiles</a>
+        <a href="{{ collections['laptops'].url | default: routes.all_products_collection_url }}">Laptops</a>
+        <a href="{{ collections['audio'].url | default: routes.all_products_collection_url }}">Audio</a>
+        <a href="{{ collections['smartwatches'].url | default: routes.all_products_collection_url }}">Smartwatches</a>
+        <a href="{{ collections['accessories'].url | default: routes.all_products_collection_url }}">Accessories</a>
       {% endif %}
     </div>
 
@@ -33,12 +35,11 @@
         {% for link in section.settings.care_menu.links %}
           <a href="{{ link.url }}">{{ link.title }}</a>
         {% endfor %}
-      {% else %}
-        <a href="/pages/contact">Contact Us</a>
-        <a href="/pages/delivery-information">Delivery Information</a>
-        <a href="/pages/returns">Returns</a>
-        <a href="/pages/warranty-support">Warranty Support</a>
-        <a href="/pages/faqs">FAQs</a>
+      {% else %}        {% if shop.email != blank %}<a href="mailto:{{ shop.email }}">Contact Us</a>{% endif %}
+        {% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Delivery Information</a>{% endif %}
+        {% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Returns</a>{% endif %}
+        {% if shop.terms_of_service != blank %}<a href="{{ shop.terms_of_service.url }}">Terms of Service</a>{% endif %}
+        {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacy Policy</a>{% endif %}
       {% endif %}
     </div>
 
@@ -46,10 +47,13 @@
       <h3>{{ section.settings.trust_heading }}</h3>
       <p>{{ section.settings.trust_text }}</p>
       <div class="payment-icons" aria-label="Payment methods">
-        <span>Visa</span>
-        <span>MC</span>
-        <span>Apple Pay</span>
-        <span>COD</span>
+        {% if shop.enabled_payment_types.size > 0 %}
+          {% for type in shop.enabled_payment_types %}
+            <span class="payment-icon">{{ type | payment_type_svg_tag }}</span>
+          {% endfor %}
+        {% else %}
+          <span>Secure checkout</span>
+        {% endif %}
       </div>
     </div>
   </div>

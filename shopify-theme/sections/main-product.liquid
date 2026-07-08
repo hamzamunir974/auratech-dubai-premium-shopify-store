@@ -40,10 +40,29 @@
         {% else %}
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
         {% endif %}
+        <label for="ProductQuantity-{{ section.id }}">Quantity</label>
+        <input id="ProductQuantity-{{ section.id }}" type="number" name="quantity" value="1" min="1">
         <button class="button button--primary" type="submit" {% unless product.available %}disabled{% endunless %}>
           {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
         </button>
       {% endform %}
+      {% assign wishlist_image = 'solar-powerbank.png' | asset_url %}
+      {% if product.featured_image %}
+        {% assign wishlist_image = product.featured_image | image_url: width: 700 %}
+      {% endif %}
+      <button
+        class="main-product__wishlist"
+        type="button"
+        aria-pressed="false"
+        data-wishlist-button
+        data-product-handle="{{ product.handle | escape }}"
+        data-product-title="{{ product.title | escape }}"
+        data-product-url="{{ product.url }}"
+        data-product-image="{{ wishlist_image }}"
+        data-product-price="{{ product.price | money | escape }}"
+        data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+        data-product-available="{{ product.available }}"
+      >Save to Wishlist</button>
       {% for block in section.blocks %}
         {% case block.type %}
           {% when '@app' %}

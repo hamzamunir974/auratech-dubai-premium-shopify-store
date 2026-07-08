@@ -21,6 +21,7 @@
               <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
               <p>{{ item.variant.title }}</p>
               <strong>{{ item.final_line_price | money }}</strong>
+              <a class="cart-item__remove" href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">Remove</a>
             </div>
             <label>
               Quantity

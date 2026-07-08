@@ -1,47 +1,58 @@
 # Shopify Upload Steps
 
-You can upload the generated theme zip directly in Shopify Admin.
+Upload `AuraTech-Dubai-Shopify-Theme-Upload.zip` directly in Shopify Admin.
 
 ## Upload the theme
 
 1. Go to Shopify Admin.
-2. Open **Online Store**.
-3. Open **Themes**.
-4. Click **Add theme**.
-5. Choose **Upload zip file**.
-6. Upload:
+2. Open `Online Store > Themes`.
+3. Click `Add theme`.
+4. Choose `Upload zip file`.
+5. Upload:
 
 ```text
-AuraTech-Dubai-Shopify-Theme.zip
+AuraTech-Dubai-Shopify-Theme-Upload.zip
 ```
 
-7. After upload, click **Customize** to edit homepage text, menus, images, reviews, products, and links.
-8. When ready, click **Publish**.
+6. After upload, click `Customize`.
+7. Preview desktop and mobile.
+8. Publish only after products, checkout, shipping, and payment settings are ready.
 
-## After Upload
+## Required Shopify Admin Setup
 
-Set these in Shopify Admin for best results:
+The theme is storefront code. These parts must still be configured in Shopify Admin:
 
-- Create collections for Mobiles, Laptops, Audio, Smartwatches, Accessories, and Deals.
-- Create a main menu with those collection links.
-- Open the theme customizer and connect the featured products section to your real collection.
-- Upload final product images to Shopify products.
-- Set store currency to AED if the store is selling in UAE.
-- Configure payments, shipping, delivery, taxes, and checkout settings inside Shopify.
+- Add products with variants, images, prices, inventory, and product descriptions.
+- Publish products to the `Online Store` sales channel.
+- Create collections such as Mobiles, Laptops, Audio, Smartwatches, Accessories, and Deals.
+- Set up navigation menus in `Online Store > Navigation`.
+- In theme customizer, select the featured products collection on the homepage.
+- Set the store currency/markets for UAE selling.
+- Configure payments, shipping, delivery, taxes, and checkout settings.
+- Add store policies.
+- Install and configure any fulfillment, review, chat, upsell, analytics, or ad pixel apps.
 
-## What is included
+## Wishlist
 
-The theme zip includes:
+The built-in wishlist drawer works after upload and saves products in the shopper's browser on that device.
 
-- Homepage sections
-- Header and footer
+Optional wishlist page:
+
+1. Go to `Online Store > Pages`.
+2. Create a page called `Wishlist`.
+3. Assign template `page.wishlist`.
+4. Add it to navigation if needed.
+
+For account-synced wishlist across devices, use a Shopify wishlist app and add its app block through the theme customizer.
+
+## Included Theme Files
+
+- `layout/theme.liquid`
+- Homepage, product, collection, cart, search, page, wishlist, and 404 templates
+- Reusable sections
 - Product card snippet
-- Product template
-- Collection template
-- Cart template
-- Search template
-- Page template
-- 404 template
-- CSS, JavaScript, logo assets, and product reference images
+- CSS and JavaScript assets
+- Logo and product reference assets
+- App block areas for integrations
 
-This theme is uploadable, but you should still test it inside Shopify after upload because Shopify data, menus, collections, payment settings, and product inventory live inside your Shopify admin.
+Test the theme inside Shopify because real product data, checkout, payments, shipping, apps, and pixels are controlled by Shopify Admin.

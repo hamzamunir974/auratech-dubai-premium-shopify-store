@@ -1,119 +1,96 @@
-# AuraTech Dubai Premium Shopify Storefront
+# AuraTech Dubai Premium Shopify Theme
 
-AuraTech Dubai is a premium, responsive Shopify-style storefront concept for a UAE-based electronics and smart gadgets store. The design focuses on a clean luxury tech aesthetic, strong mobile responsiveness, trusted retail messaging, and a structure that can be converted into Shopify Liquid sections.
+AuraTech Dubai is a premium Shopify Online Store 2.0 theme for a UAE electronics retailer. It is built for gadgets, mobile accessories, audio products, smartwatches, charging accessories, and tech lifestyle products.
 
-## Project Overview
+The repository includes both the original static prototype and a real Shopify theme folder that can be uploaded to Shopify.
 
-This storefront was built as a front-end prototype using:
+## What Is Included
 
-- HTML
-- CSS
-- JavaScript
-- Local brand and product assets
+- Upload-ready Shopify theme in `shopify-theme/`
+- Upload zip: `AuraTech-Dubai-Shopify-Theme-Upload.zip`
+- Static prototype: `index.html`, `styles.css`, `script.js`
+- Brand and product reference assets
+- Shopify sections, templates, snippets, layout, assets, and config files
 
-The design is intended for a premium electronics store selling gadgets, mobile accessories, audio products, smartwatches, charging accessories, and tech lifestyle products.
-
-## Key Features
+## Theme Features
 
 - Premium AuraTech Dubai branding
-- Fully responsive layout for mobile, tablet, laptop, and desktop
-- Announcement bar with UAE delivery and trust messaging
-- Sticky header with navigation, search, account, wishlist, cart, and mobile menu
-- Premium hero section with product showcase
-- Category cards for mobiles, laptops, audio, smartwatches, and accessories
-- Featured product grid with AED pricing, badges, ratings, wishlist buttons, and add-to-cart buttons
-- Trust benefits section
-- Promotional banner
-- Smooth customer review marquee
-- Newsletter signup section
-- Footer with store links, care links, payment placeholders, and social placeholders
-- CSS variables for colors, spacing, radius, shadows, and typography
-- Shopify-ready section class naming
+- Responsive desktop, tablet, and mobile layout
+- Announcement bar
+- Header with navigation, search, account, wishlist drawer, cart, and mobile menu
+- Homepage hero, categories, featured products, trust benefits, promo banner, reviews, newsletter, and footer
+- Real Shopify product cards connected to Shopify products and collections
+- Product page with variant selector, quantity, add to cart, wishlist, and app block area
+- Cart page with quantity updates, remove links, subtotal, and checkout
+- Search page connected to Shopify product search
+- Collection page with real products and pagination
+- Newsletter form connected to Shopify customers
+- Wishlist drawer and optional wishlist page using browser storage
+- App block support for product, collection, cart, and homepage integrations
+- Shopify payment icons from enabled payment methods
 
-## Brand Direction
+## Important Limits
 
-The design follows the AuraTech Dubai identity:
+A Shopify theme controls the storefront experience. It does not create or configure Shopify Admin settings.
 
-- Deep charcoal
-- Royal blue
-- Electric teal
-- Silver metallic
-- Pure white
-- Clean, premium electronics styling
+After uploading the theme, Shopify Admin is still required for:
 
-## Project Structure
+- Products, variants, pricing, inventory, and product images
+- Collections and navigation menus
+- Payment provider setup
+- Shipping, taxes, markets, and currency settings
+- Domain connection
+- Store policies
+- App installation and app configuration
+- Analytics pixels and ad account setup
+
+## Upload Steps
+
+1. Open Shopify Admin.
+2. Go to `Online Store > Themes`.
+3. Click `Add theme > Upload zip file`.
+4. Upload `AuraTech-Dubai-Shopify-Theme-Upload.zip` from this repo.
+5. After upload, click `Customize`.
+6. In the homepage `Featured products` section, select the collection you want to display, or leave it blank to show products from Shopify's All collection.
+7. Add your navigation under `Online Store > Navigation` and assign it to the header/footer menus if needed.
+8. Add products and publish them to the `Online Store` sales channel.
+9. Configure payments, shipping, taxes, markets, policies, apps, and pixels in Shopify Admin.
+10. Preview the theme on mobile and desktop before publishing.
+
+## Wishlist Setup
+
+The wishlist drawer works immediately after theme upload. It saves products in the shopper's browser on that device.
+
+For an optional full wishlist page:
+
+1. Go to `Online Store > Pages`.
+2. Create a page named `Wishlist`.
+3. Assign the template `page.wishlist`.
+4. Add the page to navigation if you want a visible wishlist page link.
+
+For account-synced wishlist across devices, install a Shopify wishlist app and place its app block using the theme app sections.
+
+## Developer Structure
 
 ```text
 auratech-dubai-store/
-+-- assets/
-|   +-- auratech-logo-secondary.png
-|   +-- auratech-logo-icon.png
-|   +-- auratech-logo-main.png
-|   +-- auratech-logo-dark.png
-|   +-- product images
++-- shopify-theme/
+|   +-- assets/
+|   +-- config/
+|   +-- layout/
+|   +-- locales/
+|   +-- sections/
+|   +-- snippets/
+|   +-- templates/
++-- AuraTech-Dubai-Shopify-Theme-Upload.zip
 +-- index.html
 +-- styles.css
 +-- script.js
 +-- SHOPIFY_CODE_GUIDE.md
++-- SHOPIFY_UPLOAD_STEPS.md
 +-- README.md
 ```
 
-## Local Preview
-
-Open this file in a browser:
-
-```text
-index.html
-```
-
-No build tools or package installation are required for the static prototype.
-
-## Shopify Conversion
-
-The page is organized so it can later be converted into Shopify Online Store 2.0 sections:
-
-- `announcement-bar`
-- `site-header`
-- `hero-section`
-- `category-section`
-- `featured-products`
-- `trust-section`
-- `promo-banner`
-- `reviews-section`
-- `newsletter-section`
-- `site-footer`
-
-See `SHOPIFY_CODE_GUIDE.md` for the step-by-step Shopify conversion guide, including:
-
-- Theme folder structure
-- `theme.liquid` setup
-- `index.json` homepage template
-- Section file mapping
-- Product card snippet
-- Shopify product form setup
-- Newsletter form setup
-- Asset URL conversion
-
-## Responsive Testing Targets
-
-The layout is designed for:
-
-- 320px small phones
-- 375px standard phones
-- 430px large phones
-- 768px tablets
-- 1024px small laptops
-- 1280px desktops
-- 1440px wide screens
-
 ## Repository
 
-GitHub:
-
-```text
 https://github.com/hamzamunir974/auratech-dubai-premium-shopify-store
-```
-
-## Status
-
-This is currently a static HTML, CSS, and JavaScript storefront prototype. The next development step is converting the sections into Shopify Liquid files and connecting real Shopify collections, products, cart routes, search, and newsletter forms.

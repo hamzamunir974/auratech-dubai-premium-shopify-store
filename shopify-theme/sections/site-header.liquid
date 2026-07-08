@@ -11,12 +11,12 @@
           <a href="{{ link.url }}">{{ link.title }}</a>
         {% endfor %}
       {% else %}
-        <a href="/collections/mobiles">Mobiles</a>
-        <a href="/collections/laptops">Laptops</a>
-        <a href="/collections/audio">Audio</a>
-        <a href="/collections/smartwatches">Smartwatches</a>
-        <a href="/collections/accessories">Accessories</a>
-        <a href="/collections/deals">Deals</a>
+        <a href="{{ collections['mobiles'].url | default: routes.all_products_collection_url }}">Mobiles</a>
+        <a href="{{ collections['laptops'].url | default: routes.all_products_collection_url }}">Laptops</a>
+        <a href="{{ collections['audio'].url | default: routes.all_products_collection_url }}">Audio</a>
+        <a href="{{ collections['smartwatches'].url | default: routes.all_products_collection_url }}">Smartwatches</a>
+        <a href="{{ collections['accessories'].url | default: routes.all_products_collection_url }}">Accessories</a>
+        <a href="{{ collections['deals'].url | default: routes.all_products_collection_url }}">Deals</a>
       {% endif %}
     </nav>
 
@@ -36,11 +36,11 @@
           <path d="M12 12.2a4.1 4.1 0 1 1 0-8.2 4.1 4.1 0 0 1 0 8.2Zm0-1.8a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6ZM4.8 20c.7-3.6 3.4-5.6 7.2-5.6s6.5 2 7.2 5.6h-1.9c-.6-2.5-2.4-3.8-5.3-3.8S7.3 17.5 6.7 20H4.8Z" />
         </svg>
       </a>
-      <a class="icon-button" href="/pages/wishlist" aria-label="Wishlist">
+      <button class="icon-button" type="button" aria-label="Wishlist" data-wishlist-open>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 20.6 10.9 19C6.6 15.1 4 12.7 4 9.4A4.5 4.5 0 0 1 8.6 5c1.4 0 2.7.6 3.4 1.6A4.2 4.2 0 0 1 15.4 5 4.5 4.5 0 0 1 20 9.4c0 3.3-2.6 5.7-6.9 9.6L12 20.6Zm-2.7-3.1.1.1 2.6 2.4 2.6-2.4.1-.1c4-3.6 5.5-5.2 5.5-8.1a2.7 2.7 0 0 0-2.8-2.7c-1.3 0-2.5.8-3 2h-1.7c-.5-1.2-1.7-2-3-2A2.7 2.7 0 0 0 5.8 9.4c0 2.9 1.5 4.5 5.5 8.1Z" />
         </svg>
-      </a>
+      </button>
       <a class="icon-button icon-button--cart" href="{{ routes.cart_url }}" aria-label="Cart">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7 18.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm10 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM3.5 4H6l2.2 10.8h8.5l2-7.1H8.4L8 5.9h13.1l-3 10.7H6.7L4.5 5.8h-1V4Z" />
@@ -61,12 +61,12 @@
           <a href="{{ link.url }}">{{ link.title }}</a>
         {% endfor %}
       {% else %}
-        <a href="/collections/mobiles">Mobiles</a>
-        <a href="/collections/laptops">Laptops</a>
-        <a href="/collections/audio">Audio</a>
-        <a href="/collections/smartwatches">Smartwatches</a>
-        <a href="/collections/accessories">Accessories</a>
-        <a href="/collections/deals">Deals</a>
+        <a href="{{ collections['mobiles'].url | default: routes.all_products_collection_url }}">Mobiles</a>
+        <a href="{{ collections['laptops'].url | default: routes.all_products_collection_url }}">Laptops</a>
+        <a href="{{ collections['audio'].url | default: routes.all_products_collection_url }}">Audio</a>
+        <a href="{{ collections['smartwatches'].url | default: routes.all_products_collection_url }}">Smartwatches</a>
+        <a href="{{ collections['accessories'].url | default: routes.all_products_collection_url }}">Accessories</a>
+        <a href="{{ collections['deals'].url | default: routes.all_products_collection_url }}">Deals</a>
       {% endif %}
     </nav>
     <form class="mobile-search" action="{{ routes.search_url }}" method="get" role="search">
@@ -74,6 +74,25 @@
       <input id="mobile-site-search" type="search" name="q" placeholder="Search AuraTech Dubai" value="{{ search.terms | escape }}">
       <button class="button button--primary" type="submit">Search</button>
     </form>
+  </div>
+
+  <div class="wishlist-drawer" data-wishlist-drawer hidden>
+    <div class="wishlist-drawer__overlay" data-wishlist-close></div>
+    <aside class="wishlist-drawer__panel" aria-label="Wishlist" role="dialog" aria-modal="true">
+      <div class="wishlist-drawer__header">
+        <div>
+          <p class="section-kicker">Saved products</p>
+          <h2>Wishlist</h2>
+        </div>
+        <button class="icon-button" type="button" aria-label="Close wishlist" data-wishlist-close>x</button>
+      </div>
+      <div class="empty-state wishlist-drawer__empty" data-wishlist-empty>
+        <h3>Your wishlist is empty</h3>
+        <p>Save products using the wishlist button and they will appear here on this device.</p>
+        <a class="button button--primary" href="{{ routes.all_products_collection_url }}">Shop Products</a>
+      </div>
+      <div class="product-grid wishlist-grid" data-wishlist-grid hidden></div>
+    </aside>
   </div>
 </header>
 
